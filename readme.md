@@ -1,4 +1,4 @@
-# Making Sense of Indian-Accented English: A Journey to Better Speech Recognition
+    # Making Sense of Indian-Accented English: A Journey to Better Speech Recognition
 
 ## Introduction
 Speech technologies like voice assistants, transcription tools, and captioning services rely on Automatic Speech Recognition (ASR) to turn spoken words into written text. ASR has improved dramatically in recent years, but many systems still struggle when people speak with different accents. Think about the vast linguistic diversity found in India: English is commonly spoken, but influenced by dozens of regional languages, leading to unique pronunciations, rhythms, and words not found in standard Englis...
@@ -15,7 +15,7 @@ Automatic Speech Recognition (ASR) is the technology that converts audio of spok
 ### Why Indian-Accented English?
 Indian English often incorporates phonetic elements from native languages. Some sounds may be pronounced with a curled tongue (retroflex), certain vowel sounds might be shortened or lengthened differently, and local brand names or loanwords appear frequently. These variations can trip up ASR systems trained on more “standard” English.
 
-**(Insert Image: A simple infographic showing a world map with a highlight on India and speech bubbles indicating different accents or phoneme symbols. This could visually represent linguistic diversity.)**
+
     
 
 
@@ -36,7 +36,8 @@ The project used a dataset called Svarah, containing about 9.6 hours of Indian-a
 }
 ```
 
-**(Insert Image: A screenshot of a waveform from an audio file in the dataset, with annotations showing speaker info or a snippet of metadata.)**
+![Word Cloud](cloud.png)
+![data Overview](data_overview.jpg)
 
 This dataset exposed how certain words—like “Paytm”—don’t exist in standard dictionaries, and how pronunciation patterns differ from what most ASR models expect.
     
@@ -52,6 +53,8 @@ The initial step was using the Montreal Forced Aligner (MFA). Forced alignment t
 2. Use a pronunciation dictionary and a standard acoustic model.
 3. Align words and phonemes with time segments in the audio.
 
+![FA](sphx_glr_forced_alignment_tutorial_005.png)
+
 **Challenge:** Standard dictionaries and models couldn’t handle OOV (out-of-vocabulary) words like “Paytm” or accented pronunciations.
 
 **Sample MFA Output:**
@@ -62,7 +65,6 @@ The initial step was using the Montreal Forced Aligner (MFA). Forced alignment t
 | would | 0.20       | 0.50     |
 | like  | (alignment failed) |
 
-**(Insert Image: A side-by-side comparison image—on the left, the text transcript, and on the right, a timeline waveform showing partial alignments from MFA. Mark some words as “not found”.)**
 
 These misalignments signaled the need for a more dynamic approach.
 
@@ -88,7 +90,6 @@ Phonemes for paytm: p eɪ t ə m
 
 Now the ASR system knows how “Paytm” might sound.
 
-**(Insert Image: A small diagram showing the word “Paytm” on one side and phonemes (p-eɪ-t-ə-m) on the other, with an arrow from text to phonemes.)**
 
 ---
 
@@ -102,14 +103,18 @@ acoustic_model = load_pretrained_model("asr_base.pt")
 acoustic_model.finetune("svarah_data/", epochs=5)
 ```
 
-**(Insert Image: A before-and-after chart showing improvement in word error rate (WER) after fine-tuning the acoustic model. The first bar shows higher WER, the second bar lower WER.)**
 
 With G2P handling new words and the acoustic model familiarized with the accent, alignment and transcription both improve.
+
+![G2p Overview](data_labeling_pipeline.png)
 
 ---
 
 ## CTC Segmentation: More Flexible Alignment
 Connectionist Temporal Classification (CTC) segmentation allows the model to figure out alignments without depending heavily on a fixed dictionary. It predicts phonemes frame-by-frame and finds the best fit.
+
+![CTC](sphx_glr_ctc_forced_alignment_api_tutorial_001.png)
+
 
 **Code Snippet:**
 
@@ -131,9 +136,9 @@ print(alignment)
 | using | 0.90       | 1.20     |
 | Paytm | 1.20       | 1.50     |
 
-**(Insert Image: A timeline visualization with the aligned words placed accurately along the waveform. Show “Paytm” now correctly placed.)**
 
 CTC segmentation is more adaptive, making it well-suited to accented data.
+
 
 ---
 
@@ -160,7 +165,6 @@ print("Transcribed:", transcript)
 Transcribed: ['I would like to pay using paytm']
 ```
 
-**(Insert Image: A screenshot of terminal output showing the transcribed text. Optionally, include a logo of NVIDIA NeMo or a Conformer diagram.)**
 
 ---
 
@@ -172,7 +176,6 @@ Transcribed: ['I would like to pay using paytm']
 5. **CTC Segmentation:** Get more flexible, accurate alignments.
 6. **Conformer Models via NeMo:** Leverage cutting-edge architecture for top-tier accuracy.
 
-**(Insert Image: A flowchart or pipeline image showing the progression: Audio → G2P & Acoustic Model → CTC → Conformer Model → Accurate Transcription.)**
 
 ---
 
