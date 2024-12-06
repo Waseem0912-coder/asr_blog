@@ -1,7 +1,7 @@
 # Making Sense of Indian-Accented English: A Journey to Better Speech Recognition
 
 ## Introduction
-Speech technologies like voice assistants, transcription tools, and captioning services rely on Automatic Speech Recognition (ASR) to turn spoken words into written text. ASR has improved dramatically in recent years, but many systems still struggle when people speak with different accents. Think about the vast linguistic diversity found in India: English is commonly spoken, but influenced by dozens of regional languages, leading to unique pronunciations, rhythms, and words not found in standard Englis...
+Speech technologies like voice assistants, transcription tools, and captioning services rely on Automatic Speech Recognition (ASR) to turn spoken words into written text. ASR has improved dramatically in recent years, but many systems still struggle when people speak with different accents. Think about the vast linguistic diversity found in India: English is commonly spoken, but influenced by dozens of regional languages, leading to unique pronunciations, rhythms, and words not found in standard English
 
 This blog presents a project carried out as part of a graduate-level study at the University of Florida, under Dr. Grant’s mentorship. The goal was to enhance ASR performance for Indian-accented English—making the technology more inclusive and accurate. The journey started with traditional alignment methods and evolved to cutting-edge techniques, integrating special models that handle unfamiliar words and subtle accent differences. By the end, the hope is to show that advanced methods can bring ASR closer...
     
@@ -16,7 +16,7 @@ Automatic Speech Recognition (ASR) is the technology that converts audio of spok
 Indian English often incorporates phonetic elements from native languages. Some sounds may be pronounced with a curled tongue (retroflex), certain vowel sounds might be shortened or lengthened differently, and local brand names or loanwords appear frequently. These variations can trip up ASR systems trained on more “standard” English.
 
 
-    
+![India Map](Picture1.png)
 
 
 ---
