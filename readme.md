@@ -36,8 +36,8 @@ The project used a dataset called Svarah, containing about 9.6 hours of Indian-a
 }
 ```
 
-![Word Cloud](cloud.png)
-![data Overview](data_overview.jpg)
+![Word Cloud](word_cloud.png)
+![data Overview](data_overview.png)
 
 This dataset exposed how certain words—like “Paytm”—don’t exist in standard dictionaries, and how pronunciation patterns differ from what most ASR models expect.
     
