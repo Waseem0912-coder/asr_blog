@@ -1,4 +1,4 @@
-    # Making Sense of Indian-Accented English: A Journey to Better Speech Recognition
+# Making Sense of Indian-Accented English: A Journey to Better Speech Recognition
 
 ## Introduction
 Speech technologies like voice assistants, transcription tools, and captioning services rely on Automatic Speech Recognition (ASR) to turn spoken words into written text. ASR has improved dramatically in recent years, but many systems still struggle when people speak with different accents. Think about the vast linguistic diversity found in India: English is commonly spoken, but influenced by dozens of regional languages, leading to unique pronunciations, rhythms, and words not found in standard Englis...
